@@ -1,9 +1,11 @@
 cmake_minimum_required(VERSION 3.14)
 project(my_project)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR})
+
 # GoogleTest requires at least C++14
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 set(RAYLIB_VERSION 5.0)
 find_package(raylib ${RAYLIB_VERSION} QUIET) # QUIET or REQUIRED
 if (NOT raylib_FOUND) # If there's none, fetch and build raylib
@@ -31,16 +33,17 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 enable_testing()
+
 include_directories(${PROJECT_SOURCE_DIR}/../"RendeRing Raylib"/include ${PROJECT_SOURCE_DIR}/src)
 add_executable(
-  hello_test
+  tests
   AllTests.cc
 )
 target_link_libraries(
-  hello_test
+  tests
   GTest::gtest_main
   raylib
 )
 
 include(GoogleTest)
-gtest_discover_tests(hello_test)
+gtest_discover_tests(tests)
