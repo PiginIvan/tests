@@ -1,10 +1,6 @@
-name: AllTests-Debug
+name: Testing functions
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 
 jobs:
   build:
