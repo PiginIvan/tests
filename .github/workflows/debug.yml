@@ -11,5 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: install
+      run: sudo apt-get install xorg-dev libglu1-mesa-dev
     - name: Run Test
       run: cd tests && cmake -S . -B build && cmake --build build && cd build && ctest
