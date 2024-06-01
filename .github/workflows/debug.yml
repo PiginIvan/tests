@@ -12,4 +12,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run Test
-      run: cd tests && make
+      run: cd tests && cmake -S . -B build && cmake --build build && cd build && ctest
