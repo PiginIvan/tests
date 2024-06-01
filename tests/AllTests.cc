@@ -27,12 +27,12 @@ const Vector2& Map::getWallSize() const
     return wallSize;
 }
 
-//TEST(testMap, getWallSize)
-//{
-//   Vector2 v = {4, 2};
-//    Map m("../Rendering raylib/resources/maze.txt");
-//    EXPECT_FLOAT_EQ(getDist2Points(m.getWallSize(), v), 0);
-//}
+TEST(testMap, getWallSize)
+{
+  Vector2 v = {4, 2};
+   Map m("../Rendering raylib/resources/maze.txt");
+   EXPECT_FLOAT_EQ(getDist2Points(m.getWallSize(), v), 0);
+}
 
 TEST(testTools, getDist2Points)
 {
