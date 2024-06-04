@@ -1,21 +1,13 @@
-name: AllTests-Release
+name: Testing functions
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Install gtest manually
-      run: sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo cp *.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
-    - uses: actions/checkout@v1
-    - name: configure
-      run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Werror" ..
-    - name: make
-      run: cd build && make
+    - uses: actions/checkout@v2
+    - name: install
+      run: sudo apt-get install xorg-dev libglu1-mesa-dev
     - name: Run Test
-      run: /home/runner/work/AllTests/AllTests/build/test/AllTests.test
+      run: cd tests && cmake -S . -B build && cmake --build build -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Werror" && cd build && ctest
