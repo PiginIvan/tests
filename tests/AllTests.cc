@@ -71,7 +71,7 @@ public:
 struct MyClassTest : public testing::Test {
   Map *mc;
 
-  void SetUp() { mc = new Map("../Rendering Raylib/resources/maze.txt"); } // аналог конструктора
+  void SetUp() { mc = new Map("/home/runner/work/tests/Rendering Raylib/resources/maze.txt"); } // аналог конструктора
   void TearDown() { delete mc; } // аналог деструктора
 };
 
