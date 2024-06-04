@@ -222,9 +222,10 @@ TEST_F(PlayerTest, getFlagShowLog)
   EXPECT_EQ(pt->getFlagShowLog(), false);
 }
 
-TEST_F(PlayerTest, getId)
+TEST_F(PlayerTest, SetAndgetId)
 {
-  EXPECT_EQ(pt->getId(), -842150451);
+  pt->setId(5);
+  EXPECT_EQ(pt->getId(), 5);
 }
 
 // WORLD FUNCTIONS 
