@@ -1,5 +1,5 @@
 
-GTEST_DIR=D:/googletest-release-1.11.0/googletest
+GTEST_DIR=.
 USER_DIR=.
 
 RAYLIB_VERSION     ?= 4.2.0
