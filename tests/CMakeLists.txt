@@ -34,7 +34,7 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 enable_testing()
 
-include_directories(${PROJECT_SOURCE_DIR}/../"RendeRing Raylib"/include ${PROJECT_SOURCE_DIR}/src)
+include_directories(${PROJECT_SOURCE_DIR}/../"RendeRing Raylib"/include ${PROJECT_SOURCE_DIR}/../"RendeRing Raylib"/resources)
 add_executable(
   tests
   AllTests.cc

@@ -36,8 +36,8 @@ gtest.a : gtest-all.o
 gtest_main.a : gtest-all.o gtest_main.o
 	$(AR) $(ARFLAGS) $@ $^
 
-AllTests.o : $(USER_DIR)/AllTests.cpp $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_PATHS) $(LDFLAGS) $(LDLIBS) -c $(USER_DIR)/AllTests.cpp
+AllTests.o : $(USER_DIR)/AllTests.cc $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_PATHS) $(LDFLAGS) $(LDLIBS) -c $(USER_DIR)/AllTests.cc
 
 AllTests : AllTests.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_PATHS) $^ -o $@
